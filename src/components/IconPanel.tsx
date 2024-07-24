@@ -4,6 +4,7 @@ import Item from "../models/Item";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import PageSelect from "./PageSelect";
+import { Button } from "react-bootstrap";
 
 const itemsPerPage = 8 * 4;
 interface Props {
@@ -13,6 +14,11 @@ interface Props {
 
 function IconPanel(props: Props) {
   const [page, setPage] = useState(1);
+  const [buttonSRC, setButtonSRC] = useState(
+    "/gfx-search/images/website/down_arrow.png"
+  );
+  const [open, setOpen] = useState(true);
+
   const totalPages: number = Math.ceil(props.items.length / itemsPerPage);
   const pageItems = props.items.slice(
     (page - 1) * itemsPerPage,
@@ -22,6 +28,9 @@ function IconPanel(props: Props) {
   useEffect(() => {
     if (page > totalPages) {
       setPage(totalPages);
+    }
+    if (page === 0 && totalPages > 0) {
+      setPage(1);
     }
   }, [page, totalPages]);
 
@@ -37,42 +46,58 @@ function IconPanel(props: Props) {
     setPage(nextPage);
   }
 
+  function collapse() {
+    setOpen(!open);
+    if (open) {
+      setButtonSRC("/gfx-search/images/website/up_arrow.png");
+    } else {
+      setButtonSRC("/gfx-search/images/website/down_arrow.png");
+    }
+  }
+
   return (
     <div className="outerPanel">
       <span className="panelHeader">
         <h2 className="center-vertical font-med">
           {props.heading} ({props.items.length} Total)
         </h2>
-        <PageSelect
-          curPage={page}
-          totalPages={totalPages}
-          nextPage={goToNextPage}
-          prevPage={goToPrevPage}
-        />
+        <span className="oneLine center-vertical">
+          <PageSelect
+            curPage={page}
+            totalPages={totalPages}
+            nextPage={goToNextPage}
+            prevPage={goToPrevPage}
+          />
+          <Button onClick={collapse}>
+            <img src={buttonSRC} alt="collapse"></img>
+          </Button>
+        </span>
       </span>
-      <div className="innerPanel">
-        {pageItems.map((item) => (
-          <Tippy
-            content={`Copied ${item.value}`}
-            trigger="click"
-            duration={300}
-            onShow={(instance) => {
-              setTimeout(() => instance.hide(), 1000);
-            }}
-            key={"tooltip_" + item.id}
-          >
-            <img
-              className="moukou"
-              src={"/gfx-search" + item.src}
-              alt={item.src}
-              key={item.id}
-              onClick={() => {
-                navigator.clipboard.writeText(item.value);
+      {open && (
+        <div className="innerPanel">
+          {pageItems.map((item) => (
+            <Tippy
+              content={`Copied ${item.value}`}
+              trigger="click"
+              duration={300}
+              onShow={(instance) => {
+                setTimeout(() => instance.hide(), 1000);
               }}
-            />
-          </Tippy>
-        ))}
-      </div>
+              key={"tooltip_" + item.id}
+            >
+              <img
+                className="moukou"
+                src={"/gfx-search" + item.src}
+                alt={item.src}
+                key={item.id}
+                onClick={() => {
+                  navigator.clipboard.writeText(item.value);
+                }}
+              />
+            </Tippy>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
