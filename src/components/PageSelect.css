@@ -1,0 +1,15 @@
+.arrow {
+  width: 30px;
+  height: 30px;
+  margin: auto 0;
+}
+
+.oneLine {
+  display: flex;
+  align-items: flex-start;
+}
+
+.pageDisplayP {
+  width: 80px;
+  text-align: center;
+}

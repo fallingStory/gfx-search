@@ -1,38 +1,86 @@
-.App {
-  text-align: center;
+:root {
+  --blue-bright: #59c7c2;
+  --blue-faded: #a5e0de;
+  --background-bright: #050c16;
+  --background-faded: #08101b;
+  background-color: white;
+  overflow-y: scroll;
+  font-family: url("https://fonts.googleapis.com/css2?family=Aldrich&display=swap");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  /*border: 1px red solid;*/
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1,
+h2,
+h3,
+p,
+input {
+  font-family: "Aldrich", monospace, Courier;
+  color: black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+header {
+  width: 100%;
+  min-height: 150px;
+  display: block;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+input {
+  width: 75%;
+  min-height: 50px;
+  display: block;
+  margin: 0.5em auto 0.5em auto;
+  padding-left: 1em;
+  border-radius: 5px;
+  border: 1px black solid;
+  background-color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#title {
+  width: 100%;
+  text-align: center;
+  padding: 0.5em 0 0.2em 0;
+}
+
+footer {
+  width: 85%;
+  border-top: 1px solid black;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#footer-text {
+  padding: 1em;
+}
+
+.center-vertical {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.center-horizontal {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.font-big {
+  font-size: 4em;
+}
+
+.font-med {
+  font-size: 1.3em;
+}
+
+.font-small {
+  font-size: 1em;
 }

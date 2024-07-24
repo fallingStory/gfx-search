@@ -1,0 +1,36 @@
+.outerPanel {
+  width: 90%;
+  margin: 1em auto;
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+  padding: 0 3em;
+  background-color: white;
+  border: 1px black solid;
+  border-radius: 10px;
+}
+
+.innerPanel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-left: calc(3em - 2px);
+}
+
+.moukou {
+  width: 125px;
+  height: 125px;
+  object-fit: contain;
+  margin: 10px;
+  background-color: white;
+  padding: 2px;
+  border: 1px solid black;
+  border-radius: 5%;
+}
