@@ -4,7 +4,7 @@ import Item from "../models/Item";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import PageSelect from "./PageSelect";
-import { Button } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 
 const itemsPerPage = 8 * 4;
 interface Props {
@@ -57,19 +57,19 @@ function IconPanel(props: Props) {
 
   return (
     <div className="outerPanel">
-      <span className="panelHeader">
+      <span id="panelHeader" className="flex-left-right-even">
         <h2 className="center-vertical font-med">
           {props.heading} ({props.items.length} Total)
         </h2>
-        <span className="oneLine center-vertical">
+        <span className="flex-left-right center-vertical">
           <PageSelect
             curPage={page}
             totalPages={totalPages}
             nextPage={goToNextPage}
             prevPage={goToPrevPage}
           />
-          <Button onClick={collapse}>
-            <img src={buttonSRC} alt="collapse"></img>
+          <Button className="circle" onClick={collapse}>
+            <img className="arrow" src={buttonSRC} alt="collapse"></img>
           </Button>
         </span>
       </span>

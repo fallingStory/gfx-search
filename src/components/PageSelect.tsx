@@ -9,7 +9,7 @@ interface Props {
 
 function PageSelect(props: Props) {
   return (
-    <span className="oneLine center-vertical">
+    <span className="flex-left-right center-vertical padding-right-small">
       <img
         className="arrow"
         src="/gfx-search/images/website/left_arrow.png"

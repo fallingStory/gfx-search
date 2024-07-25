@@ -4,6 +4,7 @@ import "./components/IconPanel";
 import IconPanel from "./components/IconPanel";
 import Item from "./models/Item";
 import * as ImagesJSON from "./images.json";
+import Form from "react-bootstrap/Form";
 
 function App() {
   // Allocate space for all the items
@@ -129,7 +130,7 @@ function App() {
     <>
       <header>
         <h1 className="font-big" id="title">
-          TNO GFX Search
+          TNO GFX SEARCH
         </h1>
         <input
           type="text"
@@ -138,6 +139,31 @@ function App() {
           className="font-med"
           onKeyUp={(e) => filterItems(e)}
         ></input>
+        {false && (
+          <span id="settings" className="flex-left-right-even font-small">
+            <span className="flex-left-right-even">
+              <h3 className="padding-right-small" id="results-per-panel-text">
+                Results per Panel:
+              </h3>
+              <input
+                id="results-per-panel-input"
+                className="font-small padding-left-small"
+                type="number"
+                placeholder="32"
+              ></input>
+            </span>
+            <h3>
+              <Form id="custom-switch">
+                <Form.Check type="switch" id="custom-switch-check">
+                  <Form.Check.Label className="padding-right-small">
+                    TNO Styling
+                  </Form.Check.Label>
+                  <Form.Check.Input className="padding-left-small" isValid />
+                </Form.Check>
+              </Form>
+            </h3>
+          </span>
+        )}
       </header>
       <IconPanel items={eventProps} heading="Events" />
       <IconPanel items={fociProps} heading="National Foci" />
@@ -148,7 +174,18 @@ function App() {
       <IconPanel items={decisionIconProps} heading="Decision Icons" />
       <IconPanel items={decisionImageProps} heading="Decision Images" />
       <footer>
-        <h3 id="footer-text">Some footer text</h3>
+        <p className="footer-text">
+          Made by <a href="https://x.com/story_falling">fallingStory</a> using{" "}
+          <a href="https://create-react-app.dev/">Create React App</a>,{" "}
+          <a href="https://github.com/gitname/react-gh-pages">react-gh-pages</a>
+          , and <a href="https://www.freecodecamp.org/">freeCodeCamp</a>.
+        </p>
+        <p>
+          Based off of{" "}
+          <a href="https://yard1.github.io/HoI4-GFX-Search/">
+            Yard1's HOI4 GFX Search
+          </a>
+        </p>
       </footer>
     </>
   );

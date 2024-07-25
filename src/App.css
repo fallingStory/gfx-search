@@ -1,9 +1,11 @@
 :root {
-  --blue-bright: #59c7c2;
-  --blue-faded: #a5e0de;
-  --background-bright: #050c16;
-  --background-faded: #08101b;
-  background-color: white;
+  --tno-highlight: #59c7c2;
+  --tno-mix: #112625;
+  --tno-background: #050c16;
+  --normal-highlight: black;
+  --normal-mix: rgb(181, 181, 181);
+  --normal-background: white;
+  background-color: var(--normal-background);
   overflow-y: scroll;
   font-family: url("https://fonts.googleapis.com/css2?family=Aldrich&display=swap");
 }
@@ -23,7 +25,7 @@ h3,
 p,
 input {
   font-family: "Aldrich", monospace, Courier;
-  color: black;
+  color: var(--normal-highlight);
 }
 
 header {
@@ -35,15 +37,19 @@ header {
   margin-bottom: 10px;
 }
 
-input {
+#searchBar {
   width: 75%;
   min-height: 50px;
   display: block;
   margin: 0.5em auto 0.5em auto;
   padding-left: 1em;
   border-radius: 5px;
-  border: 1px black solid;
-  background-color: white;
+  border: 1px var(--normal-highlight) solid;
+  background-color: var(--normal-background);
+}
+
+::placeholder {
+  color: var(--normal-highlight);
 }
 
 #title {
@@ -54,13 +60,28 @@ input {
 
 footer {
   width: 85%;
-  border-top: 1px solid black;
+  border-top: 1px solid var(--normal-highlight);
   text-align: center;
   margin: 0 auto;
+  padding-bottom: 1em;
 }
 
-#footer-text {
+.footer-text {
   padding: 1em;
+}
+
+.flex-left-right {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.flex-left-right-even {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
 .center-vertical {
@@ -83,4 +104,26 @@ footer {
 
 .font-small {
   font-size: 1em;
+}
+
+.circle {
+  border-radius: 50%;
+}
+
+.padding-left-small {
+  padding-left: 0.5em;
+}
+
+.padding-right-small {
+  padding-right: 0.5em;
+}
+
+#settings {
+  margin: 0 30em;
+}
+
+#results-per-panel-input {
+  width: 3em;
+  text-align: center;
+  font-weight: bold;
 }
