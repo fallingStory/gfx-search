@@ -10,7 +10,7 @@ function App() {
   // Allocate space for all the items
   const workaround = ImagesJSON;
   const events = new Array<Item>(Object.keys(workaround.events).length);
-  const foci = new Array<Item>(Object.keys(workaround.foci).length);
+  const foci = new Array<Item>(Object.keys(workaround.goals).length);
   const ideas = new Array<Item>(Object.keys(workaround.ideas).length);
   const ministers = new Array<Item>(Object.keys(workaround.ministers).length);
   const texticons = new Array<Item>(Object.keys(workaround.texticons).length);
@@ -37,7 +37,7 @@ function App() {
   );
   let upperKeyArray = new Array<string>(
     "events",
-    "foci",
+    "goals",
     "ideas",
     "ministers",
     "texticons",
@@ -47,7 +47,7 @@ function App() {
   );
   let lowerKeyArray = new Array<string[]>(
     Object.keys(workaround.events),
-    Object.keys(workaround.foci),
+    Object.keys(workaround.goals),
     Object.keys(workaround.ideas),
     Object.keys(workaround.ministers),
     Object.keys(workaround.texticons),
@@ -61,11 +61,11 @@ function App() {
       let lowerKey = lowerKeyArray[i][o];
       itemArray[i][o] = new Item(
         // @ts-ignore
-        workaround[upperKey][lowerKey].path,
+        workaround[upperKey][lowerKey].filepath,
         // @ts-ignore
-        workaround[upperKey][lowerKey].gfx,
+        workaround[upperKey][lowerKey].gfx_name,
         // @ts-ignore
-        workaround[upperKey][lowerKey].gfx.toUpperCase()
+        workaround[upperKey][lowerKey].gfx_name.toUpperCase()
       );
     }
   }
