@@ -57,7 +57,7 @@ function IconPanel(props: Props) {
 
   return (
     <div className="outerPanel">
-      <span id="panelHeader" className="flex-left-right-even">
+      <span className="panelHeader flex-left-right-even">
         <h2 className="center-vertical font-med">
           {props.heading} ({props.items.length} Total)
         </h2>
