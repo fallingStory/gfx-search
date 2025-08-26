@@ -56,8 +56,9 @@ function IconPanel(props: Props) {
   }
 
   return (
-    <div className="outerPanel">
-      <span className="panelHeader flex-left-right-even">
+    props.items.length > 0 ? (
+    <div className="w-75 mx-auto mb-4">
+      <span className="iconPanel__header px-4 regBorder">
         <h2 className="center-vertical font-med">
           {props.heading} ({props.items.length} Total)
         </h2>
@@ -74,7 +75,7 @@ function IconPanel(props: Props) {
         </span>
       </span>
       {open && (
-        <div className="innerPanel">
+        <div className="iconPanel__imageRows">
           {pageItems.map((item) => (
             <Tippy
               content={`Copied ${item.value}`}
@@ -86,7 +87,7 @@ function IconPanel(props: Props) {
               key={"tooltip_" + item.id}
             >
               <img
-                className="moukou"
+                className="iconPanel__image regBorder"
                 src={"/gfx-search" + item.src}
                 alt={item.src}
                 key={item.id}
@@ -99,6 +100,9 @@ function IconPanel(props: Props) {
         </div>
       )}
     </div>
+    ) : (
+      <></>
+    )
   );
 }
 

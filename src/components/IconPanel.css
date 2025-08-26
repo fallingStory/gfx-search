@@ -1,31 +1,24 @@
-.outerPanel {
-  width: 90%;
-  margin: 1em auto;
+.iconPanel {
 }
 
-.panelHeader {
+.iconPanel__header {
   display: flex;
-  width: 100%;
-  height: 50px;
-  padding: 0 3em;
-  background-color: var(--normal-background);
-  border: 1px var(--normal-highlight) solid;
-  border-radius: 10px;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
 
-.innerPanel {
+.iconPanel__imageRows {
   width: 100%;
   height: 100%;
   padding-left: calc(3em - 2px);
 }
 
-.moukou {
+.iconPanel__image {
   width: 125px;
   height: 125px;
   object-fit: contain;
   margin: 10px;
   background-color: var(--normal-background);
   padding: 2px;
-  border: 1px solid var(--normal-highlight);
-  border-radius: 5%;
 }

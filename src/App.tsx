@@ -4,7 +4,6 @@ import "./components/IconPanel";
 import IconPanel from "./components/IconPanel";
 import Item from "./models/Item";
 import * as ImagesJSON from "./images.json";
-import Form from "react-bootstrap/Form";
 
 function App() {
   // Allocate space for all the items
@@ -129,42 +128,24 @@ function App() {
   return (
     <>
       <header>
-        <h1 className="font-big" id="title">
+        <h1 className="title">
           TNO GFX SEARCH
         </h1>
-        <input
-          type="text"
-          placeholder="Search"
-          id="searchBar"
-          className="font-med"
-          onKeyUp={(e) => filterItems(e)}
-        ></input>
-        {false && (
-          <span id="settings" className="flex-left-right-even font-small">
-            <span className="flex-left-right-even">
-              <h3 className="padding-right-small" id="results-per-panel-text">
-                Results per Panel:
-              </h3>
-              <input
-                id="results-per-panel-input"
-                className="font-small padding-left-small"
-                type="number"
-                placeholder="32"
-              ></input>
-            </span>
-            <h3>
-              <Form id="custom-switch">
-                <Form.Check type="switch" id="custom-switch-check">
-                  <Form.Check.Label className="padding-right-small">
-                    TNO Styling
-                  </Form.Check.Label>
-                  <Form.Check.Input className="padding-left-small" isValid />
-                </Form.Check>
-              </Form>
-            </h3>
-          </span>
-        )}
+        <div style={{ position: 'relative' }}>
+          <input
+            type="text"
+            placeholder="Search"
+            id = "searchBar"
+            className="searchBar w-75 px-4 mx-auto font-med regBorder"
+            onKeyUp={(e) => filterItems(e)}
+          >
+          </input>
+          <i className="fas fa-search search-icon"></i>
+        </div>
       </header>
+
+      <div className="w-75 mx-auto border-bottom border-dark my-3"></div>
+
       <IconPanel items={eventProps} heading="Events" />
       <IconPanel items={fociProps} heading="National Foci" />
       <IconPanel items={ideaProps} heading="National Ideas" />
@@ -173,7 +154,8 @@ function App() {
       <IconPanel items={newsEventProps} heading="News Events" />
       <IconPanel items={decisionIconProps} heading="Decision Icons" />
       <IconPanel items={decisionImageProps} heading="Decision Images" />
-      <footer>
+
+      <footer className="w-75">
         <p className="footer-text">
           Made by <a href="https://x.com/story_falling">fallingStory</a> using{" "}
           <a href="https://create-react-app.dev/">Create React App</a>,{" "}
