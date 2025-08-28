@@ -20,7 +20,6 @@
 
 # custom
 public/images/data/*
-src/images.json
 
 npm-debug.log*
 yarn-debug.log*

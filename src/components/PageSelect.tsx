@@ -1,4 +1,6 @@
 import "./PageSelect.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 interface Props {
   curPage: number;
@@ -9,23 +11,12 @@ interface Props {
 
 function PageSelect(props: Props) {
   return (
-    <span className="flex-left-right center-vertical padding-right-small">
-      <img
-        className="arrow"
-        src="/gfx-search/images/website/left_arrow.png"
-        onClick={() => props.prevPage()}
-        alt="prev"
-      />
-      <p className="pageDisplayP center-vertical font-small">
-        {" "}
-        {props.curPage} / {props.totalPages}{" "}
+    <span className="flex-left-right my-auto padding-right-small">
+      <FontAwesomeIcon className="my-auto mx-1" icon={faArrowLeft} size="lg" onClick={() => props.prevPage()} />
+      <p className="my-auto mx-2 text-center" style={{width: '4.8rem'}}>
+        {props.curPage} / {props.totalPages}
       </p>
-      <img
-        className="arrow"
-        src="/gfx-search/images/website/right_arrow.png"
-        onClick={() => props.nextPage()}
-        alt="next"
-      />
+      <FontAwesomeIcon className="my-auto mx-1" icon={faArrowRight} size="lg" onClick={() => props.nextPage()} />
     </span>
   );
 }

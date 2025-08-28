@@ -4,7 +4,8 @@ import Item from "../models/Item";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import PageSelect from "./PageSelect";
-import Button from "react-bootstrap/Button";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmark, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 const itemsPerPage = 8 * 4;
 interface Props {
@@ -14,9 +15,7 @@ interface Props {
 
 function IconPanel(props: Props) {
   const [page, setPage] = useState(1);
-  const [buttonSRC, setButtonSRC] = useState(
-    "/gfx-search/images/website/down_arrow.png"
-  );
+  const [buttonIcon, setButtonIcon] = useState(faXmark);
   const [open, setOpen] = useState(true);
 
   const totalPages: number = Math.ceil(props.items.length / itemsPerPage);
@@ -49,9 +48,9 @@ function IconPanel(props: Props) {
   function collapse() {
     setOpen(!open);
     if (open) {
-      setButtonSRC("/gfx-search/images/website/up_arrow.png");
+      setButtonIcon(faChevronDown);
     } else {
-      setButtonSRC("/gfx-search/images/website/down_arrow.png");
+      setButtonIcon(faXmark);
     }
   }
 
@@ -59,19 +58,12 @@ function IconPanel(props: Props) {
     props.items.length > 0 ? (
     <div className="w-75 mx-auto mb-4">
       <span className="iconPanel__header px-4 regBorder">
-        <h2 className="center-vertical font-med">
+        <h2 className="my-2 font-med">
           {props.heading} ({props.items.length} Total)
         </h2>
-        <span className="flex-left-right center-vertical">
-          <PageSelect
-            curPage={page}
-            totalPages={totalPages}
-            nextPage={goToNextPage}
-            prevPage={goToPrevPage}
-          />
-          <Button className="circle" onClick={collapse}>
-            <img className="arrow" src={buttonSRC} alt="collapse"></img>
-          </Button>
+        <span className="flex-left-right my-auto">
+          <PageSelect curPage={page} totalPages={totalPages} nextPage={goToNextPage} prevPage={goToPrevPage} />
+          <FontAwesomeIcon icon={buttonIcon} onClick={collapse} className="my-auto ms-3 p-2"/>
         </span>
       </span>
       {open && (

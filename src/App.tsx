@@ -4,6 +4,8 @@ import "./components/IconPanel";
 import IconPanel from "./components/IconPanel";
 import Item from "./models/Item";
 import * as ImagesJSON from "./images.json";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   // Allocate space for all the items
@@ -131,16 +133,21 @@ function App() {
         <h1 className="title">
           TNO GFX SEARCH
         </h1>
-        <div style={{ position: 'relative' }}>
+        <div className="w-75 mx-auto overflow-hidden" style={{height: '50px'}}>
           <input
             type="text"
             placeholder="Search"
             id = "searchBar"
-            className="searchBar w-75 px-4 mx-auto font-med regBorder"
+            className="searchBar w-100 px-5 mx-auto font-med regBorder"
             onKeyUp={(e) => filterItems(e)}
           >
           </input>
-          <i className="fas fa-search search-icon"></i>
+            <FontAwesomeIcon 
+              className="mx-3"
+              style={{ position: 'relative', bottom: '2.5rem'}}
+              icon={faMagnifyingGlass}
+              size="lg"
+            />
         </div>
       </header>
 
