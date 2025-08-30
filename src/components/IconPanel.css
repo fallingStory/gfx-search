@@ -14,8 +14,19 @@
 .iconPanel__image {
   width: 125px;
   height: 125px;
+  overflow: auto;
   object-fit: contain;
   margin: 10px;
-  background-color: var(--normal-background);
+  background-color: #f6f6f6;
+  border-radius: 0.375rem;
   padding: 2px;
+}
+
+.iconPanel__image:hover {
+  background-color: #dddddd !important;
+}
+
+.iP__widget:hover {
+  border-radius: 50%;
+  background-color: #dddddd !important;
 }

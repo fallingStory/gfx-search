@@ -16,7 +16,7 @@ interface Props {
 function IconPanel(props: Props) {
   const [page, setPage] = useState(1);
   const [buttonIcon, setButtonIcon] = useState(faXmark);
-  const [open, setOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(true);
 
   const totalPages: number = Math.ceil(props.items.length / itemsPerPage);
   const pageItems = props.items.slice(
@@ -46,8 +46,8 @@ function IconPanel(props: Props) {
   }
 
   function collapse() {
-    setOpen(!open);
-    if (open) {
+    setIsOpen(!isOpen);
+    if (isOpen) {
       setButtonIcon(faChevronDown);
     } else {
       setButtonIcon(faXmark);
@@ -63,10 +63,10 @@ function IconPanel(props: Props) {
         </h2>
         <span className="flex-left-right my-auto">
           <PageSelect curPage={page} totalPages={totalPages} nextPage={goToNextPage} prevPage={goToPrevPage} />
-          <FontAwesomeIcon icon={buttonIcon} onClick={collapse} className="my-auto ms-3 p-2"/>
+          <FontAwesomeIcon icon={buttonIcon} onClick={collapse} className="my-auto ms-3 p-2 iP__widget"/>
         </span>
       </span>
-      {open && (
+      {isOpen && (
         <div className="iconPanel__imageRows">
           {pageItems.map((item) => (
             <Tippy
@@ -79,7 +79,7 @@ function IconPanel(props: Props) {
               key={"tooltip_" + item.id}
             >
               <img
-                className="iconPanel__image regBorder"
+                className="iconPanel__image"
                 src={"/gfx-search" + item.src}
                 alt={item.src}
                 key={item.id}
