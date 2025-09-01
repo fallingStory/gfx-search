@@ -63,13 +63,6 @@ footer {
   padding: 1em;
 }
 
-.flex-left-right {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-}
-
 .center-horizontal {
   margin-left: auto;
   margin-right: auto;

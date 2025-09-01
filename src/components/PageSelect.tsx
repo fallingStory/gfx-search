@@ -11,7 +11,7 @@ interface Props {
 
 function PageSelect(props: Props) {
   return (
-    <span className="flex-left-right my-auto padding-right-small">
+    <span className="d-flex my-auto padding-right-small">
       <FontAwesomeIcon className="my-auto mx-1 p-1 iP__widget" icon={faArrowLeft} size="lg" onClick={() => props.prevPage()} />
       <p className="my-auto mx-2 text-center" style={{width: '4.8rem'}}>
         {props.curPage} / {props.totalPages}

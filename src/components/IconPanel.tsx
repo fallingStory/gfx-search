@@ -61,7 +61,7 @@ function IconPanel(props: Props) {
         <h2 className="my-2 font-med">
           {props.heading} ({props.items.length} Total)
         </h2>
-        <span className="flex-left-right my-auto">
+        <span className="d-flex my-auto">
           <PageSelect curPage={page} totalPages={totalPages} nextPage={goToNextPage} prevPage={goToPrevPage} />
           <FontAwesomeIcon icon={buttonIcon} onClick={collapse} className="my-auto ms-3 p-2 iP__widget"/>
         </span>
