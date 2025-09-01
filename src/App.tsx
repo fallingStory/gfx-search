@@ -175,6 +175,7 @@ function App() {
             Yard1's HOI4 GFX Search
           </a>
         </p>
+        <p>Last updated 08-31-2024</p>
       </footer>
     </>
   );
