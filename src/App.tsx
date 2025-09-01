@@ -128,12 +128,12 @@ function App() {
   }
 
   return (
-    <>
+    <div className="w-75 mx-auto" style={{maxWidth: '1280px'}}>
       <header>
         <h1 className="title">
           TNO GFX SEARCH
         </h1>
-        <div className="w-75 mx-auto overflow-hidden" style={{height: '50px'}}>
+        <div className="mx-auto overflow-hidden" style={{height: '50px'}}>
           <input
             type="text"
             placeholder="Search"
@@ -151,7 +151,7 @@ function App() {
         </div>
       </header>
 
-      <div className="w-75 mx-auto border-bottom border-dark my-3"></div>
+      <div className="mx-auto border-bottom border-dark my-3"></div>
 
       <IconPanel items={eventProps} heading="Events" />
       <IconPanel items={fociProps} heading="National Foci" />
@@ -162,7 +162,7 @@ function App() {
       <IconPanel items={decisionIconProps} heading="Decision Icons" />
       <IconPanel items={decisionImageProps} heading="Decision Images" />
 
-      <footer className="w-75">
+      <footer>
         <p className="footer-text">
           Made by <a href="https://x.com/story_falling">fallingStory</a> using{" "}
           <a href="https://create-react-app.dev/">Create React App</a>,{" "}
@@ -177,7 +177,7 @@ function App() {
         </p>
         <p>Last updated 08-31-2024</p>
       </footer>
-    </>
+    </div>
   );
 }
 

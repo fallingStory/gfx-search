@@ -56,8 +56,8 @@ function IconPanel(props: Props) {
 
   return (
     props.items.length > 0 ? (
-    <div className="w-75 mx-auto mb-4">
-      <span className="iconPanel__header px-4 regBorder">
+    <div className="mx-auto mb-4">
+      <span className="iconPanel__header px-4 mb-2 regBorder">
         <h2 className="my-2 font-med">
           {props.heading} ({props.items.length} Total)
         </h2>
